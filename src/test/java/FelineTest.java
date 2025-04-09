@@ -1,6 +1,8 @@
 import com.example.Feline;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -14,8 +16,12 @@ public class FelineTest {
     private static final String EXPECTED_FAMILY = "Кошачьи";
     private static final int EXPECTED_KITTENS_COUNT = 1;
 
-    @Spy
     private Feline feline;
+
+   @Before
+   public void setUp() {
+       feline = new Feline();
+   }
 
     @Test
     public void eatMeatTest() throws Exception{

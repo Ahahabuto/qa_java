@@ -35,6 +35,12 @@ public class LionTest {
         int kittensCount = 7;
         when(feline.getKittens()).thenReturn(kittensCount);
         assertThat(lion.getKittens()).isEqualTo(kittensCount);
+    }
+
+    @Test
+
+    public void getKittensFelineTest() {
+        lion.getKittens();
         verify(feline).getKittens();
     }
 
@@ -48,6 +54,11 @@ public class LionTest {
     public void getFoodTest() throws Exception {
         when(feline.getFood("Хищник")).thenReturn(FOOD);
         assertThat(lion.getFood()).isEqualTo(FOOD);
+    }
+
+    @Test
+    public void getFoodFelineTest() throws Exception {
+        lion.getFood();
         verify(feline).getFood("Хищник");
     }
 }
