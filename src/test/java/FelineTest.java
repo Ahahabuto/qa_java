@@ -2,19 +2,17 @@ import com.example.Feline;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
     private static final String EXPECTED_FAMILY = "Кошачьи";
     private static final int EXPECTED_KITTENS_COUNT = 1;
+    private static final List<String> EXPECTED_FOOD = List.of("Животные", "Птицы", "Рыба");
 
     private Feline feline;
 
@@ -25,8 +23,8 @@ public class FelineTest {
 
     @Test
     public void eatMeatTest() throws Exception{
-        feline.eatMeat();
-        verify(feline, times(1)).getFood("Хищник");
+        List<String> food = feline.eatMeat();
+        assertEquals(EXPECTED_FOOD, food);
     }
 
     @Test
